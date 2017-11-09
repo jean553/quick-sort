@@ -3,7 +3,7 @@ mod test {
     use qs;
 
     #[test]
-    fn it_works() {
+    fn test_quick_sort() {
 
         let source = [4, 2, 6, 5];
         let mut destination = [0, 0, 0, 0];
