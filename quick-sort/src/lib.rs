@@ -13,6 +13,23 @@ mod qs {
         destination: &mut [u8],
     ) {
     }
+
+    /// Returns pivot index and modifies items positions
+    ///
+    /// # Arguments:
+    ///
+    /// `array` - the source array for pivot calculation and pivot position set
+    ///
+    /// # Returns:
+    ///
+    /// the pivot index
+    #[allow(dead_code)]
+    #[allow(unused_variables)]
+    pub fn get_pivot_index(array: &mut [u8]) -> usize {
+
+        /* TODO: to define */
+        0
+    }
 }
 
 #[cfg(test)]
