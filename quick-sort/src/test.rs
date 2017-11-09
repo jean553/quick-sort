@@ -35,4 +35,18 @@ mod test {
             "Unexpected pivot index.",
         );
     }
+
+    #[test]
+    fn test_pivot_position() {
+
+        let mut array = [5, 2, 6, 1, 3, 4];
+
+        qs::get_pivot_index(&mut array);
+
+        assert_eq!(
+            array,
+            [4, 2, 3, 1, 5, 6], // expected pivot value is 5
+            "Unexpected pivot position.",
+        );
+    }
 }
