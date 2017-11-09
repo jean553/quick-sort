@@ -20,4 +20,19 @@ mod test {
             "The array is not sorted.",
         );
     }
+
+    #[test]
+    fn test_get_pivot_index() {
+
+        let mut array = [5, 2, 6, 1, 3, 4];
+
+        let pivot = qs::get_pivot_index(&mut array);
+
+        const PIVOT_INDEX: usize = 4;
+        assert_eq!(
+            pivot,
+            PIVOT_INDEX,
+            "Unexpected pivot index.",
+        );
+    }
 }
