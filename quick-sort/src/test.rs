@@ -49,4 +49,33 @@ mod test {
             "Unexpected pivot position.",
         );
     }
+
+    #[test]
+    fn test_move_pivot_and_update_indices() {
+
+        let mut array = [5, 2, 6, 1, 3, 4];
+        let mut left = 0;
+        let mut right = array.len() - 1;
+        let mut pivot = 0;
+
+        let new_pivot = qs::move_pivot_and_update_indices(
+            &mut array,
+            &mut left,
+            &mut right,
+            pivot,
+        );
+
+        assert_eq!(
+            array,
+            [4, 2, 6, 1, 3, 5],
+            "Unexpected array order after pivot movement.",
+        );
+
+        const EXPECTED_NEW_PIVOT: usize = 5;
+        assert_eq!(
+            new_pivot,
+            EXPECTED_NEW_PIVOT,
+            "Unexpected pivot index after pivot movement.",
+        );
+    }
 }
