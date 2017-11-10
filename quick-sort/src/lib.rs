@@ -52,7 +52,11 @@ mod qs {
         pivot_index: usize,
     ) -> usize {
 
-        if array[pivot_index] < array[*right_index] {
+        if array[pivot_index] > array[*right_index] {
+
+            array[*right_index] = array[*right_index] + array[pivot_index];
+            array[pivot_index] = array[*right_index] - array[pivot_index];
+            array[*right_index] = array[*right_index] - array[pivot_index];
         }
 
         /* TODO: to define */
