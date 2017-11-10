@@ -30,6 +30,31 @@ mod qs {
         /* TODO: to define */
         0
     }
+
+    /// Returns the pivot new index and update left and right indices
+    ///
+    /// # Arguments:
+    ///
+    /// `array` - the source array for pivot calculation and pivot position set
+    /// `left_index` - the current left index
+    /// `right_index` - the current right index
+    /// `current_pivot` - the current pivot index
+    ///
+    /// # Returns:
+    ///
+    /// updated pivot index
+    #[allow(dead_code)]
+    #[allow(unused_variables)]
+    pub fn move_pivot_and_update_indices(
+        array: &mut [u8],
+        left_index: &mut usize,
+        right_index: &mut usize,
+        current_pivot: usize,
+    ) -> usize {
+
+        /* TODO: to define */
+        0
+    }
 }
 
 #[cfg(test)]
