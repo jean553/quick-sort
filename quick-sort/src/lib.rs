@@ -38,7 +38,7 @@ mod qs {
     /// `array` - the source array for pivot calculation and pivot position set
     /// `left_index` - the current left index
     /// `right_index` - the current right index
-    /// `current_pivot` - the current pivot index
+    /// `pivot_index` - the current pivot index
     ///
     /// # Returns:
     ///
@@ -49,8 +49,11 @@ mod qs {
         array: &mut [u8],
         left_index: &mut usize,
         right_index: &mut usize,
-        current_pivot: usize,
+        pivot_index: usize,
     ) -> usize {
+
+        if array[pivot_index] < array[*right_index] {
+        }
 
         /* TODO: to define */
         0
