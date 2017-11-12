@@ -52,17 +52,20 @@ mod qs {
         pivot_index: usize,
     ) -> usize {
 
+        let mut new_pivot_index = 0;
         let right_index = *right_index;
 
-        if array[pivot_index] > array[right_index] {
+        if pivot_index == *left_index &&
+            array[pivot_index] > array[right_index] {
 
             array[right_index] = array[right_index] + array[pivot_index];
             array[pivot_index] = array[right_index] - array[pivot_index];
             array[right_index] = array[right_index] - array[pivot_index];
+
+            new_pivot_index = right_index;
         }
 
-        /* TODO: to define */
-        0
+        new_pivot_index
     }
 }
 
