@@ -94,4 +94,41 @@ mod test {
             "Unexpected pivot index after pivot movement.",
         );
     }
+
+    #[test]
+    fn test_move_pivot_twice_update_indices_twice() {
+
+        let mut array = [5, 2, 6, 1, 3, 4];
+        let mut left = 0;
+        let mut right = array.len() - 1;
+        let mut pivot = 0;
+
+        qs::move_pivot_and_update_indices(
+            &mut array,
+            &mut left,
+            &mut right,
+            pivot,
+        );
+
+        const EXPECTED_LEFT_FIRST_INDEX: usize = 0;
+        assert_eq!(
+            left,
+            EXPECTED_LEFT_FIRST_INDEX,
+            "Unexpected first value for the 'left' index.",
+        );
+
+        qs::move_pivot_and_update_indices(
+            &mut array,
+            &mut left,
+            &mut right,
+            pivot,
+        );
+
+        const EXPECTED_LEFT_SECOND_INDEX: usize = 1;
+        assert_eq!(
+            left,
+            EXPECTED_LEFT_SECOND_INDEX,
+            "Unexpected second value for the 'left' index.",
+        );
+    }
 }
