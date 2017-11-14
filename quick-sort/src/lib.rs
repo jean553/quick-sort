@@ -52,7 +52,7 @@ mod qs {
         pivot_index: usize,
     ) -> usize {
 
-        let mut new_pivot_index = 0;
+        let mut new_pivot_index = pivot_index;
         let right_index = *right_index;
 
         if pivot_index == *left_index &&
