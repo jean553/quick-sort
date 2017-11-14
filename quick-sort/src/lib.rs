@@ -64,6 +64,11 @@ mod qs {
 
             new_pivot_index = right_index;
         }
+        else if pivot_index == right_index &&
+            array[pivot_index] > array[*left_index] {
+
+            *left_index += 1;
+        }
 
         new_pivot_index
     }
