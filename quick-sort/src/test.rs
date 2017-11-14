@@ -158,7 +158,7 @@ mod test {
             &mut array,
             &mut left,
             &mut right,
-            pivot,
+            first_new_pivot,
         );
 
         const EXPECTED_SECOND_NEW_PIVOT: usize = 5;
