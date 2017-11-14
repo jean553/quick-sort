@@ -103,7 +103,7 @@ mod test {
         let mut right = array.len() - 1;
         let mut pivot = 0;
 
-        qs::move_pivot_and_update_indices(
+        pivot = qs::move_pivot_and_update_indices(
             &mut array,
             &mut left,
             &mut right,
