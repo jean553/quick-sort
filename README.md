@@ -8,6 +8,8 @@ Quick sort implementation in Rust.
 - [Generate documentation](#generate-documentation)
 - [Algorithm](#algorithm)
     * [Generalities](#generalities)
+    * [Left and right indices](#left-and-right-indices)
+    * [Set the pivot index](#set-the-pivot-index)
 
 ## Run the tests
 
