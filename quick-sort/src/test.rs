@@ -189,6 +189,26 @@ mod test {
 
     #[test]
     fn test_move_pivot_update_right_index() {
-        /* TODO */
+
+        const INITIAL_RIGHT_INDEX: usize = 5;
+        const EXPECTED_RIGHT_INDEX: usize = 4;
+
+        let mut array = [2, 2, 6, 1, 3, 6];
+        let mut left = 0;
+        let mut right = INITIAL_RIGHT_INDEX;
+
+        const PIVOT_INDEX: usize = 0;
+        let pivot = qs::move_pivot_and_update_indices(
+            &mut array,
+            &mut left,
+            &mut right,
+            PIVOT_INDEX,
+        );
+
+        assert_eq!(
+            right,
+            EXPECTED_RIGHT_INDEX,
+            "Unexpected right index.",
+        );
     }
 }
