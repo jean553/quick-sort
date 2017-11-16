@@ -51,7 +51,7 @@ mod test {
     }
 
     #[test]
-    fn test_move_pivot_invert_left_and_right_indices_values() {
+    fn test_move_pivot_from_left_to_right_invert_indices_values() {
 
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
