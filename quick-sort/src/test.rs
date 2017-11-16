@@ -56,7 +56,7 @@ mod test {
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
         let mut right = array.len() - 1;
-        let mut pivot = 0;
+        let pivot = 0;
 
         qs::move_pivot_and_update_indices(
             &mut array,
@@ -78,7 +78,7 @@ mod test {
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
         let mut right = array.len() - 1;
-        let mut pivot = 0;
+        let pivot = 0;
 
         let new_pivot = qs::move_pivot_and_update_indices(
             &mut array,
@@ -138,7 +138,7 @@ mod test {
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
         let mut right = array.len() - 1;
-        let mut pivot = 0;
+        let pivot = 0;
 
         let first_new_pivot = qs::move_pivot_and_update_indices(
             &mut array,
