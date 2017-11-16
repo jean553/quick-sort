@@ -70,6 +70,11 @@ mod qs {
 
             *left_index += 1;
         }
+        else if pivot_index == right_index &&
+            array[pivot_index] < array[*left_index] {
+
+            new_pivot_index = *left_index;
+        }
 
         new_pivot_index
     }
