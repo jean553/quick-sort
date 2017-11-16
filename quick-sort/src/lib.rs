@@ -53,32 +53,36 @@ mod qs {
     ) -> usize {
 
         let mut new_pivot_index = pivot_index;
-        let right_index = *right_index;
 
         if pivot_index == *left_index &&
-            array[pivot_index] > array[right_index] {
+            array[pivot_index] > array[*right_index] {
 
             array.swap(
-                right_index,
+                *right_index,
                 *left_index,
             );
 
-            new_pivot_index = right_index;
+            new_pivot_index = *right_index;
         }
-        else if pivot_index == right_index &&
+        else if pivot_index == *right_index &&
             array[pivot_index] > array[*left_index] {
 
             *left_index += 1;
         }
-        else if pivot_index == right_index &&
+        else if pivot_index == *right_index &&
             array[pivot_index] < array[*left_index] {
 
             array.swap(
-                right_index,
+                *right_index,
                 *left_index,
             );
 
             new_pivot_index = *left_index;
+        }
+        else if pivot_index == *left_index &&
+            array[pivot_index] < array[*right_index] {
+
+            *right_index -= 1;
         }
 
         new_pivot_index
