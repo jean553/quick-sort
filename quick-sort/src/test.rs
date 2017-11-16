@@ -97,7 +97,25 @@ mod test {
 
     #[test]
     fn test_move_pivot_update_pivot_position_to_the_left() {
-        /* TODO */
+
+        let mut array = [5, 2, 6, 1, 3, 4];
+        let mut left = 0;
+        let mut right = array.len() - 1;
+        let pivot = 5;
+
+        let new_pivot = qs::move_pivot_and_update_indices(
+            &mut array,
+            &mut left,
+            &mut right,
+            pivot,
+        );
+
+        const EXPECTED_NEW_PIVOT: usize = 0;
+        assert_eq!(
+            new_pivot,
+            EXPECTED_NEW_PIVOT,
+            "Unexpected pivot index after pivot movement.",
+        );
     }
 
     #[test]
