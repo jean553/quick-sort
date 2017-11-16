@@ -142,48 +142,33 @@ mod test {
 
     #[test]
     fn test_move_pivot_keep_pivot_at_same_position() {
-        /* TODO */
-    }
-
-    #[test]
-    fn test_move_pivot_twice_update_left_index_twice() {
 
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
         let mut right = array.len() - 1;
 
-        const PIVOT_INDEX_AT_LEFT: usize = 0;
+        const INITIAL_PIVOT_INDEX: usize = 0;
         let pivot = qs::move_pivot_and_update_indices(
             &mut array,
             &mut left,
             &mut right,
-            PIVOT_INDEX_AT_LEFT,
+            INITIAL_PIVOT_INDEX,
         );
 
-        const EXPECTED_LEFT_FIRST_INDEX: usize = 0;
         assert_eq!(
             left,
-            EXPECTED_LEFT_FIRST_INDEX,
+            INITIAL_PIVOT_INDEX,
             "Unexpected first value for the 'left' index.",
-        );
-
-        qs::move_pivot_and_update_indices(
-            &mut array,
-            &mut left,
-            &mut right,
-            pivot,
-        );
-
-        const EXPECTED_LEFT_SECOND_INDEX: usize = 1;
-        assert_eq!(
-            left,
-            EXPECTED_LEFT_SECOND_INDEX,
-            "Unexpected second value for the 'left' index.",
         );
     }
 
     #[test]
-    fn test_move_pivot_twice_update_right_index_twice() {
+    fn test_move_pivot_update_left_index() {
+        /* TODO */
+    }
+
+    #[test]
+    fn test_move_pivot_update_right_index() {
         /* TODO */
     }
 }
