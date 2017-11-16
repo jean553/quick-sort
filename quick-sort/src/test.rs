@@ -51,7 +51,7 @@ mod test {
     }
 
     #[test]
-    fn test_move_pivot_updates_indices() {
+    fn test_move_pivot_invert_left_and_right_indices_values() {
 
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
@@ -73,7 +73,7 @@ mod test {
     }
 
     #[test]
-    fn test_move_pivot_update_pivot_position() {
+    fn test_move_pivot_update_pivot_position_to_the_right() {
 
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
@@ -96,7 +96,17 @@ mod test {
     }
 
     #[test]
-    fn test_move_pivot_twice_update_indices_twice() {
+    fn test_move_pivot_update_pivot_position_to_the_left() {
+        /* TODO */
+    }
+
+    #[test]
+    fn test_move_pivot_keep_pivot_at_same_position() {
+        /* TODO */
+    }
+
+    #[test]
+    fn test_move_pivot_twice_update_left_index_twice() {
 
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
@@ -133,39 +143,7 @@ mod test {
     }
 
     #[test]
-    fn test_move_pivot_twice_update_pivot_position() {
-
-        let mut array = [5, 2, 6, 1, 3, 4];
-        let mut left = 0;
-        let mut right = array.len() - 1;
-        let pivot = 0;
-
-        let first_new_pivot = qs::move_pivot_and_update_indices(
-            &mut array,
-            &mut left,
-            &mut right,
-            pivot,
-        );
-
-        const EXPECTED_FIRST_NEW_PIVOT: usize = 5;
-        assert_eq!(
-            first_new_pivot,
-            EXPECTED_FIRST_NEW_PIVOT,
-            "Unexpected first pivot index after pivot movement.",
-        );
-
-        let second_new_pivot = qs::move_pivot_and_update_indices(
-            &mut array,
-            &mut left,
-            &mut right,
-            first_new_pivot,
-        );
-
-        const EXPECTED_SECOND_NEW_PIVOT: usize = 5;
-        assert_eq!(
-            second_new_pivot,
-            EXPECTED_SECOND_NEW_PIVOT,
-            "Unexpected second pivot index after pivot movement.",
-        );
+    fn test_move_pivot_twice_update_right_index_twice() {
+        /* TODO */
     }
 }
