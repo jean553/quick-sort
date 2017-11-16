@@ -143,7 +143,7 @@ mod test {
     #[test]
     fn test_move_pivot_keep_pivot_at_same_position() {
 
-        let mut array = [5, 2, 6, 1, 3, 4];
+        let mut array = [4, 2, 6, 1, 3, 5];
         let mut left = 0;
         let mut right = array.len() - 1;
 
@@ -156,7 +156,7 @@ mod test {
         );
 
         assert_eq!(
-            left,
+            pivot,
             INITIAL_PIVOT_INDEX,
             "Unexpected first value for the 'left' index.",
         );
