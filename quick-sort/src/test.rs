@@ -158,13 +158,33 @@ mod test {
         assert_eq!(
             pivot,
             INITIAL_PIVOT_INDEX,
-            "Unexpected first value for the 'left' index.",
+            "The pivot index has changed.",
         );
     }
 
     #[test]
     fn test_move_pivot_update_left_index() {
-        /* TODO */
+
+        const INITIAL_LEFT_INDEX: usize = 0;
+        const EXPECTED_LEFT_INDEX: usize = 1;
+
+        let mut array = [4, 2, 6, 1, 3, 5];
+        let mut left = INITIAL_LEFT_INDEX;
+        let mut right = array.len() - 1;
+
+        const PIVOT_INDEX: usize = 5;
+        let pivot = qs::move_pivot_and_update_indices(
+            &mut array,
+            &mut left,
+            &mut right,
+            PIVOT_INDEX,
+        );
+
+        assert_eq!(
+            left,
+            EXPECTED_LEFT_INDEX,
+            "Unexpected left index.",
+        );
     }
 
     #[test]
