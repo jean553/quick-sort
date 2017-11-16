@@ -158,7 +158,7 @@ mod test {
         assert_eq!(
             pivot,
             INITIAL_PIVOT_INDEX,
-            "Unexpected first value for the 'left' index.",
+            "The pivot index has changed.",
         );
     }
 
