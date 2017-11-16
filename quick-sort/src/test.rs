@@ -56,13 +56,13 @@ mod test {
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
         let mut right = array.len() - 1;
-        let pivot = 0;
 
+        const PIVOT_INDEX_AT_LEFT: usize = 0;
         qs::move_pivot_and_update_indices(
             &mut array,
             &mut left,
             &mut right,
-            pivot,
+            PIVOT_INDEX_AT_LEFT,
         );
 
         assert_eq!(
@@ -78,13 +78,13 @@ mod test {
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
         let mut right = array.len() - 1;
-        let pivot = 5;
 
+        const PIVOT_INDEX_AT_RIGHT: usize = 5;
         qs::move_pivot_and_update_indices(
             &mut array,
             &mut left,
             &mut right,
-            pivot,
+            PIVOT_INDEX_AT_RIGHT,
         );
 
         assert_eq!(
@@ -100,13 +100,13 @@ mod test {
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
         let mut right = array.len() - 1;
-        let pivot = 0;
 
+        const PIVOT_POSITION_AT_LEFT: usize = 0;
         let new_pivot = qs::move_pivot_and_update_indices(
             &mut array,
             &mut left,
             &mut right,
-            pivot,
+            PIVOT_POSITION_AT_LEFT,
         );
 
         const EXPECTED_NEW_PIVOT: usize = 5;
@@ -123,13 +123,13 @@ mod test {
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
         let mut right = array.len() - 1;
-        let pivot = 5;
 
+        const PIVOT_POSITION_AT_RIGHT: usize = 5;
         let new_pivot = qs::move_pivot_and_update_indices(
             &mut array,
             &mut left,
             &mut right,
-            pivot,
+            PIVOT_POSITION_AT_RIGHT,
         );
 
         const EXPECTED_NEW_PIVOT: usize = 0;
@@ -151,13 +151,13 @@ mod test {
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
         let mut right = array.len() - 1;
-        let mut pivot = 0;
 
-        pivot = qs::move_pivot_and_update_indices(
+        const PIVOT_INDEX_AT_LEFT: usize = 0;
+        let pivot = qs::move_pivot_and_update_indices(
             &mut array,
             &mut left,
             &mut right,
-            pivot,
+            PIVOT_INDEX_AT_LEFT,
         );
 
         const EXPECTED_LEFT_FIRST_INDEX: usize = 0;
