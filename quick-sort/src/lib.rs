@@ -58,9 +58,10 @@ mod qs {
         if pivot_index == *left_index &&
             array[pivot_index] > array[right_index] {
 
-            array[right_index] = array[right_index] + array[pivot_index];
-            array[pivot_index] = array[right_index] - array[pivot_index];
-            array[right_index] = array[right_index] - array[pivot_index];
+            array.swap(
+                right_index,
+                *left_index,
+            );
 
             new_pivot_index = right_index;
         }
