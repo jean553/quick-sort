@@ -182,4 +182,30 @@ mod test {
             "Unexpected right index.",
         );
     }
+
+    #[test]
+    fn test_pivot_position_after_first_partitioning() {
+
+        let mut array = [5, 2, 6, 1, 3, 4];
+        let mut left = 0;
+        let mut right = array.len() - 1;
+        let mut pivot = 0;
+
+        while left != right {
+
+            pivot = qs::move_pivot_and_update_indices(
+                &mut array,
+                &mut left,
+                &mut right,
+                pivot,
+            );
+        }
+
+        const EXPECTED_PIVOT_INDEX: usize = 4;
+        assert_eq!(
+            pivot,
+            EXPECTED_PIVOT_INDEX,
+            "Unexpected pivot when the right index is equal to the left index",
+        );
+    }
 }
