@@ -186,10 +186,13 @@ mod test {
     #[test]
     fn test_pivot_position_after_first_partitioning() {
 
+        const INITIAL_PIVOT_INDEX: usize = 0;
+        const EXPECTED_PIVOT_INDEX: usize = 4;
+
         let mut array = [5, 2, 6, 1, 3, 4];
         let mut left = 0;
         let mut right = array.len() - 1;
-        let mut pivot = 0;
+        let mut pivot = INITIAL_PIVOT_INDEX;
 
         while left != right {
 
@@ -201,7 +204,6 @@ mod test {
             );
         }
 
-        const EXPECTED_PIVOT_INDEX: usize = 4;
         assert_eq!(
             pivot,
             EXPECTED_PIVOT_INDEX,
