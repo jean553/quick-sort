@@ -58,6 +58,9 @@ mod qs {
             pivot_index,
         );
 
+        /* TODO: #24 use explicit functions for the following steps
+           instead of defining everything at the same place */
+
         if pivot_index == *left_index &&
             array[pivot_index] > array[*right_index] {
 
