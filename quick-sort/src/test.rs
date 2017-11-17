@@ -22,35 +22,6 @@ mod test {
     }
 
     #[test]
-    fn test_get_pivot_index() {
-
-        let mut array = [5, 2, 6, 1, 3, 4];
-
-        let pivot = qs::get_pivot_index(&mut array);
-
-        const PIVOT_INDEX: usize = 4;
-        assert_eq!(
-            pivot,
-            PIVOT_INDEX,
-            "Unexpected pivot index.",
-        );
-    }
-
-    #[test]
-    fn test_pivot_position() {
-
-        let mut array = [5, 2, 6, 1, 3, 4];
-
-        qs::get_pivot_index(&mut array);
-
-        assert_eq!(
-            array,
-            [4, 2, 3, 1, 5, 6], // expected pivot value is 5
-            "Unexpected pivot position.",
-        );
-    }
-
-    #[test]
     fn test_move_pivot_from_left_to_right_invert_indices_values() {
 
         let mut array = [5, 2, 6, 1, 3, 4];
