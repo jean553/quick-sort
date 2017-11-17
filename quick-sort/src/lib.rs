@@ -44,7 +44,6 @@ mod qs {
     ///
     /// updated pivot index
     #[allow(dead_code)]
-    #[allow(unused_variables)]
     pub fn move_pivot_and_update_indices(
         array: &mut [u8],
         left_index: &mut usize,
