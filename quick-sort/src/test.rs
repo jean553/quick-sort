@@ -207,7 +207,7 @@ mod test {
         assert_eq!(
             pivot,
             EXPECTED_PIVOT_INDEX,
-            "Unexpected pivot when the right index is equal to the left index.",
+            "Unexpected pivot index after the first partitioning.",
         );
     }
 
