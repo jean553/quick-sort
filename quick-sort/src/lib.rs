@@ -1,17 +1,15 @@
 mod qs {
 
-    /// Takes one source array and sorts the result into a destination array.
+    /// Takes one array and sorts it using quick sort algorithm.
     ///
     /// # Arguments:
     ///
-    /// `source` - the source array to sort
-    /// `destination` - the destination array used to output the sorted result
+    /// `array` - the array to sort
     #[allow(dead_code)]
     #[allow(unused_variables)]
-    pub fn quick_sort(
-        source: &[u8],
-        destination: &mut [u8],
-    ) {
+    pub fn quick_sort(array: &mut [u8]) {
+
+        /* TODO: to define */
     }
 
     /// Returns the pivot new index and update left and right indices

@@ -5,17 +5,13 @@ mod test {
     #[test]
     fn test_quick_sort() {
 
-        let source = [4, 2, 6, 5];
-        let mut destination = [0, 0, 0, 0];
+        let mut source = [4, 2, 6, 5];
 
-        qs::quick_sort(
-            &source,
-            &mut destination,
-        );
+        qs::quick_sort(&mut source);
 
         /* FIXME: #2 does not pass as the function is not defined yet */
         assert_eq!(
-            destination,
+            source,
             [2, 4, 5, 6],
             "The array is not sorted.",
         );
