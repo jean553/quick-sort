@@ -51,7 +51,12 @@ mod qs {
         pivot_index: usize,
     ) -> usize {
 
-        let mut new_pivot_index = pivot_index;
+        let next_pivot_index = get_next_pivot_index(
+            array,
+            *left_index,
+            *right_index,
+            pivot_index,
+        );
 
         if pivot_index == *left_index &&
             array[pivot_index] > array[*right_index] {
@@ -60,8 +65,6 @@ mod qs {
                 *right_index,
                 *left_index,
             );
-
-            new_pivot_index = *right_index;
         }
         else if pivot_index == *right_index &&
             array[pivot_index] > array[*left_index] {
@@ -75,8 +78,6 @@ mod qs {
                 *right_index,
                 *left_index,
             );
-
-            new_pivot_index = *left_index;
         }
         else if pivot_index == *left_index &&
             array[pivot_index] < array[*right_index] {
@@ -84,7 +85,7 @@ mod qs {
             *right_index -= 1;
         }
 
-        new_pivot_index
+        next_pivot_index
     }
 
     /// Calculate the next pivot index according to the current indices.
