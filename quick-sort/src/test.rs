@@ -173,7 +173,7 @@ mod test {
         let mut right = array.len() - 1;
 
         const PIVOT_INDEX: usize = 5;
-        let pivot = qs::move_pivot_and_update_indices(
+        qs::move_pivot_and_update_indices(
             &mut array,
             &mut left,
             &mut right,
@@ -198,7 +198,7 @@ mod test {
         let mut right = INITIAL_RIGHT_INDEX;
 
         const PIVOT_INDEX: usize = 0;
-        let pivot = qs::move_pivot_and_update_indices(
+        qs::move_pivot_and_update_indices(
             &mut array,
             &mut left,
             &mut right,
