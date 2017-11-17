@@ -27,7 +27,7 @@ cargo rustdoc -- --no-defaults
 
 ### Generalities
 
-Quicksort is a divide and conquer alogorithm.
+Quicksort is a divide and conquer algorithm.
 
 Quicksort uses a pivot (specific array item):
 all the items before the pivot must be lesser than the pivot,
