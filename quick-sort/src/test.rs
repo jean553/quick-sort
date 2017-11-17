@@ -233,14 +233,18 @@ mod test {
             );
         }
 
+        const FIRST_ARRAY_LEFT_INDEX: usize = 0;
+        const FIRST_ARRAY_EXCLUDED_RIGHT_INDEX: usize = 4;
         assert_eq!(
-            &array[0..4],
+            &array[FIRST_ARRAY_LEFT_INDEX..FIRST_ARRAY_EXCLUDED_RIGHT_INDEX],
             EXPECTED_FIRST_SUB_ARRAY,
             "Unexpected first sub-array after first partitioning.",
         );
 
+        const SECOND_ARRAY_LEFT_INDEX: usize = 5;
+        const SECOND_ARRAY_EXCLUDED_RIGHT_INDEX: usize = 6;
         assert_eq!(
-            &array[5..6],
+            &array[SECOND_ARRAY_LEFT_INDEX..SECOND_ARRAY_EXCLUDED_RIGHT_INDEX],
             EXPECTED_SECOND_SUB_ARRAY,
             "Unexpected second sub-array after first partitioning.",
         );
