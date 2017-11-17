@@ -292,4 +292,49 @@ mod test {
             "Unexpected pivot index after the second partitioning.",
         );
     }
+
+    #[test]
+    fn test_sub_arrays_content_after_second_partitioning() {
+
+        const INITIAL_ARRAY: [u8; 6] = [5, 2, 6, 1, 3, 4];
+        const EXPECTED_FIRST_SUB_ARRAY: [u8; 3] = [1, 2, 3];
+
+        let mut array = INITIAL_ARRAY;
+        let mut left = 0;
+        let mut right = array.len() - 1;
+        let mut pivot = 0;
+
+        const FIRST_PARTITION_INDEX: usize = 0;
+        const PARTITIONS_AMOUNT: usize = 2;
+        for partition in FIRST_PARTITION_INDEX..PARTITIONS_AMOUNT {
+
+            while left != right {
+                pivot = qs::move_pivot_and_update_indices(
+                    &mut array,
+                    &mut left,
+                    &mut right,
+                    pivot,
+                );
+            }
+
+            if partition != FIRST_PARTITION_INDEX {
+                continue;
+            }
+
+            const SECOND_PARTITION_INITIAL_LEFT_INDEX: usize = 0;
+            const SECOND_PARTITION_INITIAL_RIGHT_INDEX: usize = 3;
+            const SECOND_PARTITION_INITIAL_PIVOT_INDEX: usize = 0;
+            left = SECOND_PARTITION_INITIAL_LEFT_INDEX;
+            right = SECOND_PARTITION_INITIAL_RIGHT_INDEX;
+            pivot = SECOND_PARTITION_INITIAL_PIVOT_INDEX;
+        }
+
+        const FIRST_ARRAY_LEFT_INDEX: usize = 0;
+        const FIRST_ARRAY_EXCLUDED_RIGHT_INDEX: usize = 3;
+        assert_eq!(
+            &array[FIRST_ARRAY_LEFT_INDEX..FIRST_ARRAY_EXCLUDED_RIGHT_INDEX],
+            EXPECTED_FIRST_SUB_ARRAY,
+            "Unexpected first sub-array after second partitioning.",
+        );
+    }
 }
