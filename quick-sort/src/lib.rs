@@ -62,7 +62,9 @@ mod qs {
            instead of defining everything at the same place */
 
         if pivot_index == *left_index &&
-            array[pivot_index] > array[*right_index] {
+            array[pivot_index] > array[*right_index] ||
+            pivot_index == *right_index &&
+            array[pivot_index] < array[*left_index] {
 
             array.swap(
                 *right_index,
@@ -73,14 +75,6 @@ mod qs {
             array[pivot_index] > array[*left_index] {
 
             *left_index += 1;
-        }
-        else if pivot_index == *right_index &&
-            array[pivot_index] < array[*left_index] {
-
-            array.swap(
-                *right_index,
-                *left_index,
-            );
         }
         else if pivot_index == *left_index &&
             array[pivot_index] < array[*right_index] {
