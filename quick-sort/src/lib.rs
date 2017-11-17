@@ -85,7 +85,7 @@ mod qs {
         next_pivot_index
     }
 
-    /// Calculate the next pivot index according to the current indices.
+    /// Calculates the next pivot index according to the current indices.
     ///
     /// # Arguments:
     ///
