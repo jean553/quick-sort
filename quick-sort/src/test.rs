@@ -207,7 +207,42 @@ mod test {
         assert_eq!(
             pivot,
             EXPECTED_PIVOT_INDEX,
-            "Unexpected pivot when the right index is equal to the left index",
+            "Unexpected pivot when the right index is equal to the left index.",
+        );
+    }
+
+    #[test]
+    fn test_sub_arrays_content_after_first_partitioning() {
+
+        const INITIAL_ARRAY: [u8; 6] = [5, 2, 6, 1, 3, 4];
+        const EXPECTED_FIRST_SUB_ARRAY: [u8; 4] = [4, 2, 3, 1];
+        const EXPECTED_SECOND_SUB_ARRAY: [u8; 1] = [6];
+
+        let mut array = INITIAL_ARRAY;
+        let mut left = 0;
+        let mut right = array.len() - 1;
+        let mut pivot = 0;
+
+        while left != right {
+
+            pivot = qs::move_pivot_and_update_indices(
+                &mut array,
+                &mut left,
+                &mut right,
+                pivot,
+            );
+        }
+
+        assert_eq!(
+            &array[0..4],
+            EXPECTED_FIRST_SUB_ARRAY,
+            "Unexpected first sub-array after first partitioning.",
+        );
+
+        assert_eq!(
+            &array[5..6],
+            EXPECTED_SECOND_SUB_ARRAY,
+            "Unexpected second sub-array after first partitioning.",
         );
     }
 }
