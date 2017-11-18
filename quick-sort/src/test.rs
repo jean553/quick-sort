@@ -7,9 +7,15 @@ mod test {
 
         let mut source = [4, 2, 6, 5];
 
-        qs::quick_sort(&mut source);
+        let left = 0;
+        let right = source.len() - 1;
 
-        /* FIXME: #2 does not pass as the function is not defined yet */
+        qs::quick_sort(
+            &mut source,
+            left,
+            right,
+        );
+
         assert_eq!(
             source,
             [2, 4, 5, 6],
