@@ -89,12 +89,12 @@ mod qs {
             );
         }
         else if pivot_index == *right_index &&
-            array[pivot_index] > array[*left_index] {
+            array[pivot_index] >= array[*left_index] {
 
             *left_index += 1;
         }
         else if pivot_index == *left_index &&
-            array[pivot_index] < array[*right_index] {
+            array[pivot_index] <= array[*right_index] {
 
             *right_index -= 1;
         }
