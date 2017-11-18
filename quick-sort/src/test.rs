@@ -70,7 +70,7 @@ mod test {
         let mut right = array.len() - 1;
 
         const PIVOT_INDEX_AT_LEFT: usize = 0;
-        qs::move_pivot_and_update_indices(
+        qs::update_indices(
             &mut array,
             &mut left,
             &mut right,
@@ -92,7 +92,7 @@ mod test {
         let mut right = array.len() - 1;
 
         const PIVOT_INDEX_AT_RIGHT: usize = 5;
-        qs::move_pivot_and_update_indices(
+        qs::update_indices(
             &mut array,
             &mut left,
             &mut right,
@@ -114,7 +114,14 @@ mod test {
         let mut right = array.len() - 1;
 
         const PIVOT_POSITION_AT_LEFT: usize = 0;
-        let new_pivot = qs::move_pivot_and_update_indices(
+        let new_pivot = qs::get_next_pivot_index(
+            &array,
+            left,
+            right,
+            PIVOT_POSITION_AT_LEFT,
+        );
+
+        qs::update_indices(
             &mut array,
             &mut left,
             &mut right,
@@ -137,7 +144,14 @@ mod test {
         let mut right = array.len() - 1;
 
         const PIVOT_POSITION_AT_RIGHT: usize = 5;
-        let new_pivot = qs::move_pivot_and_update_indices(
+        let new_pivot = qs::get_next_pivot_index(
+            &array,
+            left,
+            right,
+            PIVOT_POSITION_AT_RIGHT,
+        );
+
+        qs::update_indices(
             &mut array,
             &mut left,
             &mut right,
@@ -160,7 +174,14 @@ mod test {
         let mut right = array.len() - 1;
 
         const INITIAL_PIVOT_INDEX: usize = 0;
-        let pivot = qs::move_pivot_and_update_indices(
+        let pivot = qs::get_next_pivot_index(
+            &array,
+            left,
+            right,
+            INITIAL_PIVOT_INDEX,
+        );
+
+        qs::update_indices(
             &mut array,
             &mut left,
             &mut right,
@@ -185,7 +206,7 @@ mod test {
         let mut right = array.len() - 1;
 
         const PIVOT_INDEX: usize = 5;
-        qs::move_pivot_and_update_indices(
+        qs::update_indices(
             &mut array,
             &mut left,
             &mut right,
@@ -210,7 +231,7 @@ mod test {
         let mut right = INITIAL_RIGHT_INDEX;
 
         const PIVOT_INDEX: usize = 0;
-        qs::move_pivot_and_update_indices(
+        qs::update_indices(
             &mut array,
             &mut left,
             &mut right,
@@ -237,12 +258,21 @@ mod test {
 
         while left != right {
 
-            pivot = qs::move_pivot_and_update_indices(
+            let next_pivot = qs::get_next_pivot_index(
+                &array,
+                left,
+                right,
+                pivot,
+            );
+
+            qs::update_indices(
                 &mut array,
                 &mut left,
                 &mut right,
                 pivot,
             );
+
+            pivot = next_pivot;
         }
 
         assert_eq!(
@@ -266,12 +296,21 @@ mod test {
 
         while left != right {
 
-            pivot = qs::move_pivot_and_update_indices(
+            let next_pivot = qs::get_next_pivot_index(
+                &array,
+                left,
+                right,
+                pivot,
+            );
+
+            qs::update_indices(
                 &mut array,
                 &mut left,
                 &mut right,
                 pivot,
             );
+
+            pivot = next_pivot;
         }
 
         const FIRST_ARRAY_LEFT_INDEX: usize = 0;
@@ -307,12 +346,22 @@ mod test {
         for partition in FIRST_PARTITION_INDEX..PARTITIONS_AMOUNT {
 
             while left != right {
-                pivot = qs::move_pivot_and_update_indices(
+
+                let next_pivot = qs::get_next_pivot_index(
+                    &array,
+                    left,
+                    right,
+                    pivot,
+                );
+
+                qs::update_indices(
                     &mut array,
                     &mut left,
                     &mut right,
                     pivot,
                 );
+
+                pivot = next_pivot;
             }
 
             if partition != FIRST_PARTITION_INDEX {
@@ -350,12 +399,22 @@ mod test {
         for partition in FIRST_PARTITION_INDEX..PARTITIONS_AMOUNT {
 
             while left != right {
-                pivot = qs::move_pivot_and_update_indices(
+
+                let next_pivot = qs::get_next_pivot_index(
+                    &array,
+                    left,
+                    right,
+                    pivot,
+                );
+
+                qs::update_indices(
                     &mut array,
                     &mut left,
                     &mut right,
                     pivot,
                 );
+
+                pivot = next_pivot;
             }
 
             if partition != FIRST_PARTITION_INDEX {
@@ -394,7 +453,7 @@ mod test {
         let mut right = INITIAL_RIGHT_INDEX;
         let mut pivot = INITIAL_PIVOT;
 
-        pivot = qs::move_pivot_and_update_indices(
+        qs::update_indices(
             &mut array,
             &mut left,
             &mut right,
@@ -422,7 +481,7 @@ mod test {
             "Unexpected right index.",
         );
 
-        pivot = qs::move_pivot_and_update_indices(
+        qs::update_indices(
             &mut array,
             &mut left,
             &mut right,
@@ -460,12 +519,21 @@ mod test {
         left = UPDATED_LEFT_INDEX;
         right = UPDATED_RIGHT_INDEX;
 
-        pivot = qs::move_pivot_and_update_indices(
+        let next_pivot = qs::get_next_pivot_index(
+            &array,
+            left,
+            right,
+            pivot,
+        );
+
+        qs::update_indices(
             &mut array,
             &mut left,
             &mut right,
             pivot,
         );
+
+        pivot = next_pivot;
 
         const FIRST_ARRAY_INDEX: usize = 0;
         const ARRAY_ITEMS_AMOUNT: usize = 4;
