@@ -3,10 +3,9 @@ mod test {
     use qs;
 
     #[test]
-    fn test_quick_sort() {
+    fn test_quick_sort_with_small_array() {
 
         let mut source = [4, 2, 6, 5];
-
         let left = 0;
         let right = source.len() - 1;
 
