@@ -43,6 +43,26 @@ mod test {
     }
 
     #[test]
+    fn test_quick_sort_with_small_array_with_same_values() {
+
+        let mut source = [4, 4, 3, 3, 2, 1, 2, 5, 5];
+        let left = 0;
+        let right = source.len() - 1;
+
+        qs::quick_sort(
+            &mut source,
+            left,
+            right,
+        );
+
+        assert_eq!(
+            source,
+            [1, 2, 2, 3, 3, 4, 4, 5, 5],
+            "The array with identical values is not sorted.",
+        );
+    }
+
+    #[test]
     fn test_move_pivot_from_left_to_right_invert_indices_values() {
 
         let mut array = [5, 2, 6, 1, 3, 4];
