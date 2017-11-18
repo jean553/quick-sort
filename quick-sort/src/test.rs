@@ -7,9 +7,15 @@ mod test {
 
         let mut source = [4, 2, 6, 5];
 
-        qs::quick_sort(&mut source);
+        let left = 0;
+        let right = source.len() - 1;
 
-        /* FIXME: #2 does not pass as the function is not defined yet */
+        qs::quick_sort(
+            &mut source,
+            left,
+            right,
+        );
+
         assert_eq!(
             source,
             [2, 4, 5, 6],
@@ -331,6 +337,124 @@ mod test {
             &array[FIRST_ARRAY_LEFT_INDEX..FIRST_ARRAY_EXCLUDED_RIGHT_INDEX],
             EXPECTED_FIRST_SUB_ARRAY,
             "Unexpected first sub-array after second partitioning.",
+        );
+    }
+
+    #[test]
+    fn test_step_by_step_sorting_process() {
+
+        const INITIAL_ARRAY: [u8; 4] = [2, 4, 6, 5];
+        const EXPECTED_SORTED_ARRAY: [u8; 4] = [2, 4, 5, 6];
+
+        const INITIAL_LEFT_INDEX: usize = 1;
+        const INITIAL_RIGHT_INDEX: usize = 3;
+        const INITIAL_PIVOT: usize = 1;
+
+        let mut array = INITIAL_ARRAY;
+        let mut left = INITIAL_LEFT_INDEX;
+        let mut right = INITIAL_RIGHT_INDEX;
+        let mut pivot = INITIAL_PIVOT;
+
+        pivot = qs::move_pivot_and_update_indices(
+            &mut array,
+            &mut left,
+            &mut right,
+            pivot,
+        );
+
+        const EXPECTED_FIRST_PIVOT_INDEX: usize = 1;
+        assert_eq!(
+            pivot,
+            EXPECTED_FIRST_PIVOT_INDEX,
+            "Unexpected pivot index.",
+        );
+
+        const EXPECTED_FIRST_LEFT_INDEX: usize = 1;
+        assert_eq!(
+            left,
+            EXPECTED_FIRST_LEFT_INDEX,
+            "Unexpected left index.",
+        );
+
+        const EXPECTED_FIRST_RIGHT_INDEX: usize = 2;
+        assert_eq!(
+            right,
+            EXPECTED_FIRST_RIGHT_INDEX,
+            "Unexpected right index.",
+        );
+
+        pivot = qs::move_pivot_and_update_indices(
+            &mut array,
+            &mut left,
+            &mut right,
+            pivot,
+        );
+
+        const EXPECTED_SECOND_PIVOT_INDEX: usize = 1;
+        assert_eq!(
+            pivot,
+            EXPECTED_SECOND_PIVOT_INDEX,
+            "Unexpected pivot index.",
+        );
+
+        const EXPECTED_SECOND_LEFT_INDEX: usize = 1;
+        assert_eq!(
+            left,
+            EXPECTED_SECOND_LEFT_INDEX,
+            "Unexpected left index.",
+        );
+
+        const EXPECTED_SECOND_RIGHT_INDEX: usize = 1;
+        assert_eq!(
+            right,
+            EXPECTED_SECOND_RIGHT_INDEX,
+            "Unexpected right index.",
+        );
+
+        /* left = right, so these indices have to be refreshed with new values,
+           we test the right sub-array, so left is incremented and right is equal
+           to the array size minus 1; as always, pivot is equal to the left index */
+        const UPDATED_PIVOT: usize = 2;
+        const UPDATED_LEFT_INDEX: usize = 2;
+        const UPDATED_RIGHT_INDEX: usize = 3;
+        pivot = UPDATED_PIVOT;
+        left = UPDATED_LEFT_INDEX;
+        right = UPDATED_RIGHT_INDEX;
+
+        pivot = qs::move_pivot_and_update_indices(
+            &mut array,
+            &mut left,
+            &mut right,
+            pivot,
+        );
+
+        const FIRST_ARRAY_INDEX: usize = 0;
+        const ARRAY_ITEMS_AMOUNT: usize = 4;
+        assert_eq!(
+            &array[FIRST_ARRAY_INDEX..ARRAY_ITEMS_AMOUNT],
+            EXPECTED_SORTED_ARRAY,
+            "Unexpected array.",
+        );
+
+        const EXPECTED_THIRD_PIVOT_INDEX: usize = 3;
+        assert_eq!(
+            pivot,
+            EXPECTED_THIRD_PIVOT_INDEX,
+            "Unexpected pivot index.",
+        );
+
+        const EXPECTED_THIRD_LEFT_INDEX: usize = 2;
+        assert_eq!(
+            left,
+            EXPECTED_THIRD_LEFT_INDEX,
+            "Unexpected left index.",
+        );
+
+        const EXPECTED_THIRD_RIGHT_INDEX: usize = 3;
+        assert_eq!(
+            right,
+            EXPECTED_THIRD_RIGHT_INDEX,
+            "Unexpected right index.",
         );
     }
 }
