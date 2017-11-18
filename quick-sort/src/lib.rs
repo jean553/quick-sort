@@ -17,12 +17,22 @@ mod qs {
         let previous_right = right;
 
         while left != right {
-            pivot = move_pivot_and_update_indices(
+
+            let next_pivot_index = get_next_pivot_index(
+                array,
+                left,
+                right,
+                pivot,
+            );
+
+            update_indices(
                 array,
                 &mut left,
                 &mut right,
                 pivot,
             );
+
+            pivot = next_pivot_index;
         }
 
         if left == previous_left && right == previous_right {
@@ -35,20 +45,18 @@ mod qs {
             pivot,
         );
 
-        let right_side_first_index = if pivot == array.len() - 1 {
-            pivot
-        } else {
-            pivot + 1
-        };
+        if pivot != array.len() - 1 {
+            pivot += 1;
+        }
 
         quick_sort(
             array,
-            right_side_first_index,
+            pivot,
             previous_right,
         );
     }
 
-    /// Returns the pivot new index and update left and right indices
+    /// Updates left and right indices
     ///
     /// # Arguments:
     ///
@@ -61,22 +69,12 @@ mod qs {
     ///
     /// updated pivot index
     #[allow(dead_code)]
-    pub fn move_pivot_and_update_indices(
+    pub fn update_indices(
         array: &mut [u8],
         left_index: &mut usize,
         right_index: &mut usize,
         pivot_index: usize,
-    ) -> usize {
-
-        let next_pivot_index = get_next_pivot_index(
-            array,
-            *left_index,
-            *right_index,
-            pivot_index,
-        );
-
-        /* TODO: #24 use explicit functions for the following steps
-           instead of defining everything at the same place */
+    ) {
 
         if pivot_index == *left_index &&
             array[pivot_index] > array[*right_index] ||
@@ -98,8 +96,6 @@ mod qs {
 
             *right_index -= 1;
         }
-
-        next_pivot_index
     }
 
     /// Calculates the next pivot index according to the current indices.
@@ -115,7 +111,7 @@ mod qs {
     ///
     /// next expected pivot index
     #[allow(dead_code)]
-    fn get_next_pivot_index(
+    pub fn get_next_pivot_index(
         array: &[u8],
         left_index: usize,
         right_index: usize,
