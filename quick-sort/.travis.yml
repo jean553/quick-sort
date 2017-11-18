@@ -1,0 +1,9 @@
+language: rust
+rust:
+    - nightly
+
+before_script:
+    - cd quick-sort/ 
+
+script:
+    - cargo test

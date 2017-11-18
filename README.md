@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jean553/quick-sort.svg?branch=master)](https://travis-ci.org/jean553/quick-sort)
+
 # quick-sort
 
 Quick sort implementation in Rust.
