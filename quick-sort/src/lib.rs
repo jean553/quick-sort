@@ -6,10 +6,46 @@ mod qs {
     ///
     /// `array` - the array to sort
     #[allow(dead_code)]
-    #[allow(unused_variables)]
-    pub fn quick_sort(array: &mut [u8]) {
+    pub fn quick_sort(
+        array: &mut [u8],
+        mut left: usize,
+        mut right: usize,
+    ) {
 
-        /* TODO: to define */
+        let mut pivot = left;
+        let previous_left = left;
+        let previous_right = right;
+
+        while left != right {
+            pivot = move_pivot_and_update_indices(
+                array,
+                &mut left,
+                &mut right,
+                pivot,
+            );
+        }
+
+        if left == previous_left && right == previous_right {
+            return;
+        }
+
+        quick_sort(
+            array,
+            previous_left,
+            pivot,
+        );
+
+        let right_side_first_index = if pivot == array.len() - 1 {
+            pivot
+        } else {
+            pivot + 1
+        };
+
+        quick_sort(
+            array,
+            right_side_first_index,
+            previous_right,
+        );
     }
 
     /// Returns the pivot new index and update left and right indices
