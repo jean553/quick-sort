@@ -3,10 +3,9 @@ mod test {
     use qs;
 
     #[test]
-    fn test_quick_sort() {
+    fn test_quick_sort_with_small_array() {
 
         let mut source = [4, 2, 6, 5];
-
         let left = 0;
         let right = source.len() - 1;
 
@@ -19,6 +18,26 @@ mod test {
         assert_eq!(
             source,
             [2, 4, 5, 6],
+            "The small array is not sorted.",
+        );
+    }
+
+    #[test]
+    fn test_quick_sort_with_long_array() {
+
+        let mut source = [7, 12, 3, 1, 24, 26, 13, 0, 2, 8, 4, 9, 6];
+        let left = 0;
+        let right = source.len() - 1;
+
+        qs::quick_sort(
+            &mut source,
+            left,
+            right,
+        );
+
+        assert_eq!(
+            source,
+            [0, 1, 2, 3, 4, 6, 7, 8, 9, 12, 13, 24, 26],
             "The array is not sorted.",
         );
     }
