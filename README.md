@@ -6,6 +6,7 @@ Quick sort implementation in Rust.
 
 ## Table of contents
 
+- [Usage](#usage)
 - [Run the tests](#run-the-tests)
 - [Generate documentation](#generate-documentation)
 - [Algorithm](#algorithm)
@@ -13,6 +14,13 @@ Quick sort implementation in Rust.
     * [Left and right indices](#left-and-right-indices)
     * [Set the pivot index](#set-the-pivot-index)
 - [Example](#example)
+
+## Usage
+
+```rust
+let mut array: [u8; 4] = [10, 5, 7, 3];
+qs::quick_sort(&mut array, 0, 3);
+```
 
 ## Run the tests
 
